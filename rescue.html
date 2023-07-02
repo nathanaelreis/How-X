@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Rewards Rescue</title>
+</head>
+<body>
+    <section class="rescue">
+        <h1>Resgatar Pontos</h1>
+        <div class="hr"></div>
+
+        <div id="progress">
+            <progress value="25" max="100"></progress>
+            <div class="status-progress">
+              <p>25 Pontos</p>
+              <p>100 Pontos</p>
+            </div>
+        </div>
+        <div class="tabs">
+            <div class="resgatar">
+
+                <h3>Rewards</h3>
+
+                <div class="bonus">
+                    <p> 05% de desconto</p>
+                    <p id="p-valor">25</p>
+                    <p>Garanta 5% de desconto na carteira de estudante !</p>
+                    <a href="#"><button class="rescue-btn" data-value="25" id="rescue-rwd-crd">Resgatar</button></a>
+                </div>
+
+                <div class="bonus">
+                    <p> 10% de desconto</p>
+                    <p id="p-valor">75</p>
+                    <p>Obtenha 10% de desconto no pagamento da fatura.</p>
+                    <a href="#"><button class="rescue-btn" data-value="75" id="rescue-rwd-crd">Resgatar</button></a>
+                </div>
+
+                <div class="bonus">
+                    <p>Brinde ?</p>
+                    <p id="p-valor">90</p>
+                    <p>Resgate um Super<br> Brinde misterioso !</p>
+                    <a href="#"><button class="rescue-btn" data-value="90" id="rescue-rwd-crd">Resgatar</button></a>
+                </div>
+            </div>
+            <div class="troque"></div>
+            <div class="como-funciona"></div>
+        </div>
+    </section>
+    <script>
+        var progress = document.querySelector('progress');
+        var rescueButtons = document.querySelectorAll('.rescue-btn');
+        var progressValue = parseInt(progress.getAttribute('value'));
+
+        for (var i = 0; i < rescueButtons.length; i++) {
+            rescueButtons[i].addEventListener('click', function() {
+                var buttonValue = parseInt(this.getAttribute('data-value'));
+                if (progressValue >= buttonValue) {
+                    alert('Resgatado com sucesso!');
+                 }else {
+                    alert('Pontos insuficientes');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
